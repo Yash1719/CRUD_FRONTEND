@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: './employee-list.component.html',
   styleUrl: './employee-list.component.css'
 })
+
 export class EmployeeListComponent implements OnInit{
   employees: Employee[] = [];
 
@@ -16,6 +17,7 @@ export class EmployeeListComponent implements OnInit{
   ngOnInit(): void {
     this.getEmployees()
   }
+
   private getEmployees(){
     this.employeeService.getEmployeeList().subscribe(data=>{
       this.employees=data;
@@ -23,7 +25,6 @@ export class EmployeeListComponent implements OnInit{
   }
   updateEmployee(id:number){
       this.router.navigate(['update-employee',id]);
-      // this.getEmployees();
   }
   deleteEmployee(id:number)
   {
